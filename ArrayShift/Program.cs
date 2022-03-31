@@ -19,7 +19,16 @@ namespace ArrayShift
             Console.Write($"Введите число для смещения массива: ");
             int step = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"введенное число: {step}");
+            if (step >= count || step <= -count)
+            {
+                int temporary = step % count;
+                step = temporary;
+            }
+
+            if (step < 0)
+            {
+                step = count + step;
+            }
 
             for (int j = 0; j < step; j++)
             {
